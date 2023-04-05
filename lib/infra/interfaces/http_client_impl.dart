@@ -39,7 +39,7 @@ class HttpClientImpl implements HttpClientBase {
 
   @override
   Future<Either<HttpError, String>> post(String url, String data,
-      {Map<String, String>? headers, int timeout = 5000}) async {
+      {ContentType? contentType, Map<String, String>? headers, int timeout = 5000}) async {
     final uri = Uri.parse(url);
     final client = HttpClient();
 
@@ -48,7 +48,7 @@ class HttpClientImpl implements HttpClientBase {
 
     try {
       final request = await client.postUrl(uri);
-      request.headers.contentType = ContentType.json;
+      request.headers.contentType = contentType ?? ContentType.json;
       request.headers.contentLength = data.length;
       if (headers != null) {
         headers.forEach((key, value) => request.headers.add(key, value));
