@@ -25,7 +25,7 @@ class HttpClientImpl implements HttpClientBase {
     final uri = Uri.parse(url);
 
     headers ??= <String, String>{};
-    headers[HttpHeaders.contentTypeHeader] = contentType?.value ?? ContentType.text.value;
+    headers[HttpHeaders.contentTypeHeader] = contentType?.value ?? ContentType.json.value;
 
     var response = await http.post(uri, headers: headers)
       .timeout(Duration(milliseconds: timeout));
