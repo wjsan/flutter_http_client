@@ -27,7 +27,7 @@ class HttpClientImpl implements HttpClientBase {
     headers ??= <String, String>{};
     headers[HttpHeaders.contentTypeHeader] = contentType?.value ?? ContentType.json.value;
 
-    var response = await http.post(uri, headers: headers)
+    var response = await http.post(uri, body: data, headers: headers)
       .timeout(Duration(milliseconds: timeout));
     if(response.statusCode >= HttpStatus.badRequest){
       return Left(HttpResponseError(response.statusCode, response.body));
