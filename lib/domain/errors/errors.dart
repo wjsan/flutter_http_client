@@ -8,6 +8,7 @@ class HttpRequestException implements HttpError {
 
 class HttpResponseError implements HttpError {
   final int statusCode;
+  final String response;
 
-  HttpResponseError(this.statusCode);
+  HttpResponseError(this.statusCode, this.response);
 }

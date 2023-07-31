@@ -1,6 +1,6 @@
 name: flutter_http_client
 description: A new Flutter package project.
-version: 0.0.1
+version: 0.1.0
 homepage:
 
 environment:
@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   dartz:
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
