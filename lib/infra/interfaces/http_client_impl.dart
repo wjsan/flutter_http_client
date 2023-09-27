@@ -24,7 +24,7 @@ class HttpClientImpl implements HttpClientBase {
   }
 
   @override
-  Future<Either<HttpError, String>> post(String url, String data,
+  Future<Either<HttpError, String>> post(String url, Object data,
       {ContentType? contentType, Map<String, String>? headers, int timeout = 5000}) async {
     try {
       final uri = Uri.parse(url);
